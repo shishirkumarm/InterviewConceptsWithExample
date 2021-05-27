@@ -1,0 +1,35 @@
+{
+  "name": "javascript-interview-concepts",
+  "version": "1.0.0",
+  "description": "Javascript interview concepts with examples",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/shishirkumarm/InterviewConceptsWithExample.git"
+  },
+  "keywords": [
+    "javascript",
+    "interview",
+    "concepts\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Dadvanced",
+    "javascript",
+    "concepts",
+    "OOj",
+    "javascript",
+    "interview",
+    "concepts",
+    "and",
+    "examples",
+    "javascript",
+    "for",
+    "experts\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C"
+  ],
+  "author": "Shishir Kumar Mijar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shishirkumarm/InterviewConceptsWithExample/issues"
+  },
+  "homepage": "https://github.com/shishirkumarm/InterviewConceptsWithExample#readme"
+}
