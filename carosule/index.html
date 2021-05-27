@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="stylesheet" href="styles.css">
+      <title>Flexbox Example</title>
+    </head>
+    <body>
+        <div class="flexbox-container">
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+    </body>
+    <script>
+        // initial index set to 1. Hence slides start from index: 1
+        var slideIndex = 1;
+        populateImages();
+        showDivs(slideIndex);
+
+        function populateImages() {
+            var container = document.getElementsByClassName("flexbox-container");
+            for(var index=1; index <= 5; index++){
+                var image = document.createElement('img');
+                image.src = './assets/'+index+'.jpg';
+                image.setAttribute("class", "flexbox-item");
+                
+                container[0].appendChild(image)
+            };
+        }
+        
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("flexbox-item");
+            if (n > x.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = x.length} ;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex-1].style.display = "block";
+        }
+    </script>
+</html>

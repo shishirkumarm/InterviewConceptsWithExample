@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="stylesheet" href="styles.css">
+      <title>Auto complete feature</title>
+    </head>
+    <body>
+        <div class="flexbox-container">
+            <div class="flexbox-item flexbox-item-2">
+                <input class="country_search" id="search" value=""  autocomplete="off" />
+                <label class="search_counts">Counts found: <span id="counts">0</span></label>
+                <div class="showSearchResults"></div>
+            </div>
+        </div>
+    </body>
+    <script>
+       const inputField = document.querySelector("#search");
+       const countDisplay = document.querySelector("#counts");
+       const showSearchResults = document.querySelector(".showSearchResults");
+
+       inputField.addEventListener('input', () => filterCountry(inputField.value));
+
+       const filterCountry = async (pattern) => {
+           if (!pattern.length > 0) {
+                showSearchResults.innerHTML = '';
+                countDisplay.innerHTML = 0;
+                return;
+           }
+
+           const res = await fetch('https://gist.githubusercontent.com/bradtraversy/20dee7787486d10db3bd1f55fae5fdf4/raw/2c06c44dcea55ecbb6fbf20edfd240ec6373b688/state_capitals.json').catch((error) => {console.log(error)});
+           const list = await res.json();
+
+           if (list.length > 0) {
+            countDisplay.innerHTML = 0;
+            resultingCountry = list.filter(( countryItem ) => {
+                const matchPattern = new RegExp(`^${pattern}`,'gi');
+                return countryItem.name.match(matchPattern) || countryItem.abbr.match(matchPattern);
+            });
+
+            const html = resultingCountry.map((resultingItem) => {
+                return `<p> ${resultingItem.name} : <span>${resultingItem.abbr}</span></p>`;
+            }).join();
+
+            showSearchResults.innerHTML = html;
+            countDisplay.innerHTML = resultingCountry.length;
+
+           } else {
+            showSearchResults.innerHTML = '';
+            countDisplay.innerHTML = 0;
+           }
+       }
+
+    </script>
+</html>
